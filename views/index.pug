@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  div#wrapper
+    section#main
+      header
+        span.avatar
+          img(src="/images/avatar.png", alt="avatar.png")
+        h1 #{title}
+        p#time Loading...
+        p#temperature Temperature: #{temperature}°C
+        p#humidity Humidity: #{humidity}% RH
+      footer
+    footer#footer
+      ul.copyright
+        li &copy; Takahashi Kiyoshi
+  script.
+    if ('addEventListener' in window) {
+      window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
+      document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+    }
+    let time = document.getElementById('time');
+    setInterval(() => {
+      time.textContent = `${moment().tz("America/Los_Angeles").format('HH:mm:ss L Z')} PT`;
+    }, 1000);
