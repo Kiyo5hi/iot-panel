@@ -11,7 +11,8 @@ router.get('/', function (req, res, next) {
   DataModel.findOne({}, {}, { sort: { _id: -1 } }, function (err, data) {
     res.render('index',
       {
-        title: 'Kiyoshi\'s Room',
+        title: '晴雨表 | Kiyoshi\'s Room',
+        subtitle: 'Kiyoshi\'s Room',
         temperature: data.Temperature,
         humidity: data.Humidity
       }

@@ -5,15 +5,28 @@ block content
     section#main
       header
         span.avatar
-          img(src="/images/avatar.png", alt="avatar.png")
-        h1 #{title}
+          img(src="/images/avatar.png" alt="avatar.png")
+        h1 #{subtitle}
         p#time Loading...
         p#temperature Temperature: #{temperature}°C
         p#humidity Humidity: #{humidity}% RH
+      hr
       footer
+        ul.icons
+          li
+            a(href="https://blog.k1yoshi.com" class="icon solid fa-blog" aria-label="Blog" rel='noreferrer noopener nofollow')
+          li
+            a(href="https://github.com/Kiyo5hi" class="icon brands fa-github" target="_blank" aria-label="Github" rel='noreferrer noopener nofollow')
+          li
+            a(href="https://t.me/Takahashi_Kiyoshi" class="icon brands fa-telegram-plane" target="_blank" aria-label="Telegram" rel='noreferrer noopener nofollow')
     footer#footer
       ul.copyright
         li &copy; Takahashi Kiyoshi
+        li
+            span#busuanzi_container_site_pv 
+                span#busuanzi_value_site_uv
+                |  individuals have visited this site
+            
   script.
     if ('addEventListener' in window) {
       window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
