@@ -1,23 +1,19 @@
 var express = require('express');
 var router = express.Router();
-const mongoose = require('mongoose');
-const DataModel = require('../models/datamodel.js');
-const config = require('../config/.config.json');
-const url = config.database;
-mongoose.connect(url, { useNewUrlParser: true });
+const get = require('../controller/get.js');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  DataModel.findOne({}, {}, { sort: { _id: -1 } }, function (err, data) {
-    res.render('index',
-      {
-        title: '晴雨表 | Kiyoshi\'s Room',
-        subtitle: 'Kiyoshi\'s Room',
-        temperature: data.Temperature,
-        humidity: data.Humidity
-      }
-    );
-  });
+  get.fromDB((err, data) => {
+    if (err) throw err;
+    console.log(`Retrieved from MongoDB: ${JSON.stringify(data)}`);
+    res.render('index', {
+      title: '晴雨表 | Kiyoshi\'s Room',
+      subtitle: 'Kiyoshi\'s Room',
+      temperature: data.Temperature,
+      humidity: data.Humidity
+    });
+  })
 });
 
 module.exports = router;

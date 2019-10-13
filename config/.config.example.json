@@ -1,5 +1,8 @@
-[
-    {
-        "database": "mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[database][?options]]"
-    }
-]
+{
+    "host": "",
+    "port": "",
+    "database": "",
+    "username": "",
+    "password": ""
+  }
+  
