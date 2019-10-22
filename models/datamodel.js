@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 var DataSchema = new Schema(
     {
-        time: Number,
+        time: Date,
         temperature: Number,
         humidity: Number
     }
