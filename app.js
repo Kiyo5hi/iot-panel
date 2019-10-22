@@ -11,10 +11,10 @@ var app = express();
 // connect to MongoDB
 const mongoose = require('mongoose');
 const config = require('./config/.config.json');
-const db = `mongodb://${config.username}:${config.password}@${config.host}:${config.port}/${config.database}`;
+const db = config.mongodb;
 mongoose.connect(db, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 }, (err) => {
   if (err) throw err;
   console.log('Connect to MongoDB successfully!');
@@ -26,19 +26,21 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

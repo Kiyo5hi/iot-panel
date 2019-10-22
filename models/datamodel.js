@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 var DataSchema = new Schema(
     {
-        Time: Number,
-        Temperature: Number,
-        Humidity: Number
+        time: Number,
+        temperature: Number,
+        humidity: Number
     }
 );
 

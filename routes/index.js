@@ -10,8 +10,8 @@ router.get('/', function (req, res, next) {
     res.render('index', {
       title: '晴雨表 | Kiyoshi\'s Room',
       subtitle: 'Kiyoshi\'s Room',
-      temperature: data.Temperature,
-      humidity: data.Humidity
+      temperature: data.temperature,
+      humidity: data.humidity
     });
   })
 });
