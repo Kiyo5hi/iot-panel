@@ -1,3 +1,0 @@
-{
-  "mongodb": "mongodb+srv://<username>:<password>@<host>/<database>?retryWrites=true&w=majority"
-}
