@@ -122,7 +122,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
           .format("HH:mm:ss L Z")} PT`;
       }, 1000);
       (async () => {
-        let json = await (await fetch("https://api.k1yoshi.com/iot")).json();
+        let json = await (
+          await fetch("https://api.k1yoshi.com/iot", { cache: "no-cache" })
+        ).json();
         document.getElementById("temperature").textContent = json.temperature;
         document.getElementById("humidity").textContent = json.humidity;
       })();
